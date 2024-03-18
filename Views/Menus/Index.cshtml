@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Hotel_Management_System.Models.Menu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="text-center"><h1>Menu Section...!</h1></div>
+ <div class="col-md-4 offset-md-5">
+    <i class="bi bi-plus-circle-fill"></i><a class="btn btn-primary"asp-action="Create" asp-controller="Menus" >Create Menus...</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MenuName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu_Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu_Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MenuName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Menu_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Menu_Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Menu_Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MenuId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MenuId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MenuId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
